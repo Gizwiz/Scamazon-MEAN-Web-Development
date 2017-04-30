@@ -7,14 +7,19 @@
 <div class="container">
 	<br>
 
-  <ul class="items">
   <% for(var i=0; i<items.length; i++) {%>
-    <li class="quote">
-      <span><%= items[i].name %></span>
-      <span><%= items[i].price %></span>
-    </li>
+    <div class="row">
+        <div class="col-xs-6">
+            <img src="<%= items[i].img %>" height="250vh" width="400vh">
+        </div>
+         <div class="col-xs-6">
+            <span><h2><%= items[i].name %></h2></span><br>
+            <span><%= items[i].description %></span><br>
+            <span><%= items[i].price %>&nbsp;<%= items[i].unit %></span>
+        </div>
+    </div><br>
   <% } %>
-  </ul>
+
 
 
 	
