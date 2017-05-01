@@ -67,7 +67,7 @@ io.on('connection', function(socket){
     socket.emit('newclientconnect',{ description: 'Hey, welcome!'})
     socket.on('chat message', function(msg){
     io.emit('chat message', 'You: '+msg);
-	io.emit('chat message', 'Support: Thank you for using Scamazon. Your concerns are important to us. We hope you enjoy your Scamazon(tm) experience!');
+    io.emit('chat message', 'Support: Thank you for using Scamazon. Your concerns are important to us. We hope you enjoy your Scamazon(tm) experience!');
     
     console.log('A user connected');
 
