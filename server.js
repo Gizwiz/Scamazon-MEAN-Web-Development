@@ -64,13 +64,18 @@ app.post('/edit', (req, res) => {
 });
 
 io.on('connection', function(socket){
-  console.log('A user connected');
+    socket.emit('newclientconnect',{ description: 'Hey, welcome!'})
+    socket.on('chat message', function(msg){
+    io.emit('chat message', msg);
+    
+    console.log('A user connected');
 
   //Whenever someone disconnects this piece of code executed
   socket.on('disconnect', function () {
     console.log('A user disconnected');
+    
   });
-
+ });
 });
 
 MongoClient.connect('mongodb://user:password@ds127391.mlab.com:27391/items', (err, database) => {
