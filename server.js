@@ -17,13 +17,13 @@ app.get('/', (req, res) => {
   db.collection('items').find().toArray((err, result) => {
     if (err) return console.log(err)
     // renders index.ejs
-    res.render('pages/index.ejs', {items: result})
+    res.render('pages/index', {items: result})
   });
 });
 
 app.get('/support', function (req, res) {
 
-    res.render('pages/support.ejs', {
+    res.render('pages/support', {
     });
 });
 
@@ -31,7 +31,7 @@ app.get('/admin', function (req, res){
   db.collection('items').find().toArray((err, result) => {
     if (err) return console.log(err)
     // renders index.ejs
-    res.render('pages/admin.ejs', {items: result})
+    res.render('pages/admin', {items: result})
   });
 });
 
@@ -43,11 +43,24 @@ app.post('/add', (req, res) =>{
 });
 
 app.post('/remove', (req, res) => {
-    console.log(req.body.name);
     db.collection('items').deleteOne({
        name: req.body.name
     });
      res.redirect('/admin');
+});
+
+app.post('/edit', (req, res) => {
+    db.collection('items').update(
+        { name:req.body.oName },
+        {
+            name:req.body.name,
+            description:req.body.description,
+            price:req.body.price,
+            unit:req.body.unit,
+            img:req.body.img
+        }
+    );
+    res.redirect('/admin');
 });
 
 io.on('connection', function(socket){

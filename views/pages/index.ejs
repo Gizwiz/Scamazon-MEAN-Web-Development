@@ -8,9 +8,9 @@
 	<br>
 
   <% for(var i=0; i<items.length; i++) {%>
-    <div class="row">
+    <div class="row" style="border-bottom:1px solid black">
         <div class="col-xs-6">
-            <img src="<%= items[i].img %>" height="250vh" width="400vh">
+            <img src="<%= items[i].img %>" height="260vh" width="400vh">
         </div>
          <div class="col-xs-6">
             <span><h2><%= items[i].name %></h2></span><br>
@@ -20,7 +20,7 @@
     </div><br>
   <% } %>
 
-
+    <br><br><br>
 
 	
 </div>
