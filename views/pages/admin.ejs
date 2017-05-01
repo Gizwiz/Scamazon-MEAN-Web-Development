@@ -30,7 +30,7 @@
                 <button type="button" class="btn btn-default btn-circle btn-xl"><i class="glyphicon glyphicon-pencil"></i></button><br><br>
 
                 <form action="/remove" method="post" id="removeForm">
-                        <input type="hidden" name="_id" value="<%=items[i]._id %>">
+                        <input type="hidden" name="name" value="<%= items[i].name %>">
                         <button type="submit" class="btn btn-default btn-circle btn-xl"><i class="glyphicon glyphicon-remove"></i></button><br><br>
                 </form>
                 
@@ -57,10 +57,10 @@
           </div>
           <div class="modal-body">
                 <form action="/add" method="post" style="text-align:center">
-                        <input type="text" placeholder="name" name="name"><br>
-                        <input type="text" placeholder="description" name="description"><br>
-                        <input type="text" placeholder="price" name="price"><br>
-                        <input type="hide" placeholder="unit (eg e/mo)" name="unit"><br>
+                        <input type="text" placeholder="name" name="name" required><br>
+                        <input type="text" placeholder="description" name="description" required><br>
+                        <input type="text" placeholder="price" name="price" required><br>
+                        <input type="hide" placeholder="unit (eg e/mo)" name="unit" required><br>
                         <input type="text" placeholder="Image URL" name="img"><br>
                     <button type="submit" style="width:75%">Add Item</button>
                 </form>

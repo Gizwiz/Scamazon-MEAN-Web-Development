@@ -43,11 +43,11 @@ app.post('/add', (req, res) =>{
 });
 
 app.post('/remove', (req, res) => {
-    console.log(req.body);
-   db.collection('items').remove(req.body, (err, results) => {
-        if (err) return console.log(err);
-     res.redirect('/admin');
+    console.log(req.body.name);
+    db.collection('items').deleteOne({
+       name: req.body.name
     });
+     res.redirect('/admin');
 });
 
 io.on('connection', function(socket){
